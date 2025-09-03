@@ -1,11 +1,10 @@
 pipeline {
-    agent any   // Jenkins can run this pipeline on any available agent
+    agent any
 
     stages {
         stage('Fetch Code') {
             steps {
                 echo 'Fetching code'
-                // Example: clone code from GitHub
                 git branch: 'main',
                     url: 'https://github.com/AnmolSingh8858/devops-jenkins12.git'
             }
@@ -31,3 +30,4 @@ pipeline {
         }
     }
 }
+
