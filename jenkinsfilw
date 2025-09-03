@@ -1,0 +1,33 @@
+pipeline {
+    agent any   // Jenkins can run this pipeline on any available agent
+
+    stages {
+        stage('Fetch Code') {
+            steps {
+                echo 'Fetching code'
+                // Example: clone code from GitHub
+                git branch: 'main',
+                    url: 'https://github.com/AnmolSingh8858/devops-jenkins12.git'
+            }
+        }
+
+        stage('Install Apache') {
+            steps {
+                echo 'Installing Apache'
+                sh '''
+                    sudo apt update -y
+                    sudo apt install apache2 -y
+                '''
+            }
+        }
+
+        stage('Deploy App') {
+            steps {
+                echo 'Deploying Application'
+                sh '''
+                    sudo cp -R * /var/www/html/
+                '''
+            }
+        }
+    }
+}
