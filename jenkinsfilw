@@ -5,8 +5,7 @@ pipeline {
         stage('Fetch Code') {
             steps {
                 echo 'Fetching code'
-                git branch: 'main',
-                    url: 'https://github.com/AnmolSingh8858/devops-jenkins12.git'
+                git branch: 'main', url: 'https://github.com/AnmolSingh8858/devops-jenkins12.git'
             }
         }
 
@@ -30,4 +29,3 @@ pipeline {
         }
     }
 }
-
